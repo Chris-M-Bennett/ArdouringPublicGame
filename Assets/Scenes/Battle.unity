@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 141665945}
   - component: {fileID: 141665944}
   m_Layer: 5
-  m_Name: General Text
+  m_Name: Act Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1753,7 +1753,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: General
+  m_Text: Act
 --- !u!222 &141665945
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2673,7 +2673,7 @@ GameObject:
   - component: {fileID: 656141104}
   - component: {fileID: 656141103}
   m_Layer: 5
-  m_Name: General Panel
+  m_Name: Act Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2773,7 +2773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.0999336, y: -16}
+  m_AnchoredPosition: {x: 5.0999146, y: -16}
   m_SizeDelta: {x: 500, y: 55}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &716403537
@@ -2808,7 +2808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Protag
+  m_Text: Opponent
 --- !u!222 &716403538
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3961,7 +3961,7 @@ GameObject:
   - component: {fileID: 978020607}
   - component: {fileID: 978020606}
   m_Layer: 5
-  m_Name: General Button
+  m_Name: Act Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3980,11 +3980,11 @@ RectTransform:
   m_Children:
   - {fileID: 141665943}
   m_Father: {fileID: 1905485766}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 55, y: 25}
+  m_AnchoredPosition: {x: 420, y: 25}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &978020606
@@ -4031,7 +4031,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1905485769}
-        m_MethodName: GeneralButton
+        m_MethodName: ActButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4891,11 +4891,11 @@ RectTransform:
   m_Children:
   - {fileID: 1280822494}
   m_Father: {fileID: 1905485766}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 235, y: 25}
+  m_AnchoredPosition: {x: 55, y: 25}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1338664911
@@ -5159,7 +5159,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1468462937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6111,9 +6111,9 @@ RectTransform:
   - {fileID: 234748998}
   - {fileID: 1818927982}
   - {fileID: 2084739282}
-  - {fileID: 978020605}
   - {fileID: 1338664910}
   - {fileID: 2048547901}
+  - {fileID: 978020605}
   - {fileID: 1468462935}
   - {fileID: 656141102}
   - {fileID: 913959453}
@@ -6177,11 +6177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  generalPanel: {fileID: 656141101}
+  actPanel: {fileID: 656141101}
   persuadePanel: {fileID: 913959452}
   arguePanel: {fileID: 878411043}
   itemsPanel: {fileID: 1850856676}
-  panelsArray: []
 --- !u!1 &1984216543
 GameObject:
   m_ObjectHideFlags: 0
@@ -6563,11 +6562,11 @@ RectTransform:
   m_Children:
   - {fileID: 137048843}
   m_Father: {fileID: 1905485766}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 420, y: 25}
+  m_AnchoredPosition: {x: 235, y: 25}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2048547902
@@ -6623,7 +6622,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &2048547903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7204,8 +7203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  generalPanel: {fileID: 0}
-  persuadePanel: {fileID: 0}
-  arguePanel: {fileID: 0}
-  itemsPanel: {fileID: 0}
-  panelsArray: []
+  actPanel: {fileID: 656141101}
+  persuadePanel: {fileID: 913959452}
+  arguePanel: {fileID: 878411043}
+  itemsPanel: {fileID: 1850856676}

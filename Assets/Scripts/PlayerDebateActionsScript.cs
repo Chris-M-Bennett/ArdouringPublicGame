@@ -12,15 +12,15 @@ public class PlayerDebateActionsScript : MonoBehaviour
     [SerializeField] private GameObject persuadePanel;
     [SerializeField] private GameObject arguePanel;
     [SerializeField] private GameObject itemsPanel;
-    [SerializeField] private GameObject[] panelsArray;
+    private GameObject[] _panelsArray;
 
     void Start()
     {
-        panelsArray = new GameObject[4];
-        panelsArray[0] = persuadePanel;
-        panelsArray[1] = arguePanel;
-        panelsArray[2] = actPanel;
-        panelsArray[3] = itemsPanel;
+        _panelsArray = new GameObject[4];
+        _panelsArray[0] = persuadePanel;
+        _panelsArray[1] = arguePanel;
+        _panelsArray[2] = actPanel;
+        _panelsArray[3] = itemsPanel;
         //Ensures no panels are showed when scene is started
         ClosePanels();
     }
@@ -56,7 +56,7 @@ public class PlayerDebateActionsScript : MonoBehaviour
     /// Hides all panels in the panels array
     /// </summary>
     void ClosePanels(){
-        foreach (var i in panelsArray)
+        foreach (var i in _panelsArray)
         {
             i.SetActive(false);
         }
