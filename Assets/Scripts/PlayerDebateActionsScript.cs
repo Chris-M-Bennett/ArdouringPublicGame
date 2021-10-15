@@ -3,24 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum States { Neutral, General, Persuade, Argue, Items}
-public class PlayerBattleActionsScript : MonoBehaviour
+public enum States { Neutral, Persuade, Argue, Act, Items}
+public class PlayerDebateActionsScript : MonoBehaviour
 {
     public States state = States.Neutral;
     //Game Objects
-    /*[SerializeField] private Button generalButton;
-    [SerializeField] private Button persuadeButton;
-    [SerializeField] private Button argueButton;
-    [SerializeField] private Button itemsButton;
-    [SerializeField] private Button checkButton;
-    [SerializeField] private Button giftButton;
-    [SerializeField] private Button runButton;
-    [SerializeField] private Button endBattleButton;
-    [SerializeField] private Button varyingButton;
-    [SerializeField] private Button thankButton;
-    [SerializeField] private Button onTopicButton;
-    [SerializeField] private Button ethosButton;*/
-    [SerializeField] private GameObject generalPanel;
+    [SerializeField] private GameObject actPanel;
     [SerializeField] private GameObject persuadePanel;
     [SerializeField] private GameObject arguePanel;
     [SerializeField] private GameObject itemsPanel;
@@ -29,9 +17,9 @@ public class PlayerBattleActionsScript : MonoBehaviour
     void Start()
     {
         panelsArray = new GameObject[4];
-        panelsArray[0] = generalPanel;
-        panelsArray[1] = persuadePanel;
-        panelsArray[2] = arguePanel;
+        panelsArray[0] = persuadePanel;
+        panelsArray[1] = arguePanel;
+        panelsArray[2] = actPanel;
         panelsArray[3] = itemsPanel;
         //Ensures no panels are showed when scene is started
         ClosePanels();
@@ -40,10 +28,6 @@ public class PlayerBattleActionsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (state)
-        {
-            
-        }  
     }
 
     void PanelButton(GameObject panel, States changeState){
@@ -52,8 +36,8 @@ public class PlayerBattleActionsScript : MonoBehaviour
         state = changeState;
     }
     
-    public void GeneralButton(){
-        PanelButton(generalPanel, States.General);
+    public void ActButton(){
+        PanelButton(actPanel, States.Act);
     }
     
     public void PersuadeButton(){
