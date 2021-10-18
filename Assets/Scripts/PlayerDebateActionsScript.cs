@@ -12,6 +12,10 @@ public class PlayerDebateActionsScript : MonoBehaviour
     [SerializeField] private GameObject persuadePanel;
     [SerializeField] private GameObject arguePanel;
     [SerializeField] private GameObject itemsPanel;
+    [SerializeField] private GameObject choice1Button;
+    [SerializeField] private GameObject choice2Button;
+    [SerializeField] private GameObject choice3Button;
+    [SerializeField] private GameObject choice4Button;
     private GameObject[] _panelsArray;
 
     void Start()
