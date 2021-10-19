@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DebateValuesScript : MonoBehaviour  
 {
-    [SerializeField] public string battlerName;
-    [SerializeField] public int battlerLevel;
-    [SerializeField] public int battlerDamage;
+    [SerializeField] public string debaterName;
+    [SerializeField] public int debaterLevel;
+    [SerializeField] public int debaterDamage;
     [SerializeField] public int maxES;
     [SerializeField] public int currentES;
     // Start is called before the first frame update
