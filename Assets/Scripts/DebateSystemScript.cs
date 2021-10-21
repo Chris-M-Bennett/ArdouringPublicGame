@@ -8,11 +8,10 @@ public class DebateSystemScript : MonoBehaviour
 {
     [SerializeField, Header("The Player game object in the scene")] private GameObject player;
     [SerializeField, Header("The point where the enemy is placed")] private Transform opponentSpawn;
-    [SerializeField, Header("The text display for the opponent's name")] private Text opponentName;
     [SerializeField] private GameObject opponentPrefab;
     
-    [HideInInspector] public DebateHUDScript playerHUD;
-    [HideInInspector] public DebateHUDScript opponentHUD;
+    public DebateHUDScript playerHUD;
+    public DebateHUDScript opponentHUD;
     
     private DebateValuesScript _playerValues;
     private DebateValuesScript _opponentValues;

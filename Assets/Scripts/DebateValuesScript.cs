@@ -17,10 +17,4 @@ public class DebateValuesScript : MonoBehaviour
             currentES = PlayerPrefs.GetInt("playerES", maxES);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
