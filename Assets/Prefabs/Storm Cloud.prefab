@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4915289711706006721}
   - component: {fileID: 912509662349270247}
   m_Layer: 0
-  m_Name: Angry Dude
+  m_Name: Storm Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a942ccb9b670af409c85b0ffd774b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debaterName: Angry Dude
+  debaterName: Storm Cloud
   debaterLevel: 1
   debaterDamage: 5
   maxES: 100
