@@ -12,11 +12,12 @@ public class DebateSystemScript : MonoBehaviour
     
     public DebateHUDScript playerHUD;
     public DebateHUDScript opponentHUD;
+    [HideInInspector] public GameObject opponentGO;
     
     private DebateValuesScript _playerValues;
     private DebateValuesScript _opponentValues;
     protected BattleState state = BattleState.Start;
-    
+
     // Start is called before the first frame update
     void Start(){
         DebateSetup();
@@ -31,7 +32,7 @@ public class DebateSystemScript : MonoBehaviour
     void DebateSetup(){
         _playerValues = player.GetComponent<DebateValuesScript>();
         
-        GameObject opponentGO = Instantiate(opponentPrefab, opponentSpawn);
+        opponentGO = Instantiate(opponentPrefab, opponentSpawn);
         _opponentValues = opponentGO.GetComponent<DebateValuesScript>();
         
         playerHUD.SetHUD(_playerValues);

@@ -13,24 +13,30 @@ public class PlayerDebateActionsScript : MonoBehaviour
     public const string GIFT = "Gift";
     public const string RUN = "Run";
     public const string OVERLOADPACIFY = "Overload/Pacify";
+    public const string PERSUADEVARIED = "Varying";
+    public const string THANK = "Thank";
+    public const string ONTOPIC = "On Topic";
+    public const string ETHOS = "Ethos";
+    public const string ARGUEVARIED = "Varying";
+    public const string PROVOKE = "Provoke";
+    private const string CONFUSE = "Confuse";
+    public const string PATHOS = "Pathos";
 
     public States state = States.Neutral;
-    //Game Objects
-    //[SerializeField] private GameObject actPanel;
-    //[SerializeField] private GameObject persuadePanel;
-    //[SerializeField] private GameObject arguePanel;
-    //[SerializeField] private GameObject itemsPanel;
-    //private GameObject[] _panelsArray;
     [SerializeField] private GameObject choicePanel;
     [SerializeField] private GameObject choice1Button;
     [SerializeField] private GameObject choice2Button;
     [SerializeField] private GameObject choice3Button;
     [SerializeField] private GameObject choice4Button;
+    [SerializeField] private Slider opponentESSlider;
+    private GameObject _opponentGO;
     private Text _choice1Text;
     private Text _choice2Text;
     private Text _choice3Text;
     private Text _choice4Text;
     private bool _isArguing;
+    private bool _clicked = false;
+    private int _persuade1Change = 2;
 
     void Start()
     {
@@ -38,10 +44,11 @@ public class PlayerDebateActionsScript : MonoBehaviour
         _choice2Text = choice2Button.transform.GetComponentInChildren<Text>();
         _choice3Text = choice3Button.transform.GetComponentInChildren<Text>();
         _choice4Text = choice4Button.transform.GetComponentInChildren<Text>();
-       // _panelsArray = new GameObject[4];
-       // _panelsArray[0] = persuadePanel;
-       // _panelsArray[1] = arguePanel;
-       // _panelsArray[2] = actPanel;
+        _opponentGO = GetComponentInParent<DebateSystemScript>().opponentGO;
+        // _panelsArray = new GameObject[4];
+        // _panelsArray[0] = persuadePanel;
+        // _panelsArray[1] = arguePanel;
+        // _panelsArray[2] = actPanel;
         //_panelsArray[3] = itemsPanel;
         //Ensures no panels are showed when scene is started
         //ClosePanels();
@@ -52,6 +59,12 @@ public class PlayerDebateActionsScript : MonoBehaviour
     {
         button.GetComponent<Button>().enabled = state;
         button.GetComponent<Image>().color = state ? Color.white : Color.gray;
+    }
+
+    void SetButtonOnClick(GameObject button, int change)
+    {
+        button.GetComponent<Button>().onClick.AddListener(()=>ChangeOpponentES.OpponentESChange(_opponentGO, change, opponentESSlider));
+        _clicked = true;
     }
     
     // Update is called once per frame
@@ -72,8 +85,8 @@ public class PlayerDebateActionsScript : MonoBehaviour
                 //choice3Button.GetComponent<Button>().onClick.AddListener(OnTopic);
                 _choice4Text.text = "Ethos";
                 //choice4Button.GetComponent<Button>().onClick.AddListener(Ethos);*/
-                ChangeState("Varying",States.Neutral, "Thank", States.Emotions,  "On Topic",  
-                    States.Neutral, "Ethos",States.Neutral);
+                ChangeState(PERSUADEVARIED,States.Neutral, THANK, States.Emotions,  ONTOPIC,  
+                    States.Neutral, ETHOS,States.Neutral);
                 SetButtonUnlock(choice4Button, false);
                 // choice4Button.GetComponent<Button>().enabled = false;
                 // choice4Button.GetComponent<Image>().color = Color.gray;
@@ -81,8 +94,8 @@ public class PlayerDebateActionsScript : MonoBehaviour
             
             case States.Argue:
                 _isArguing = true;
-                ChangeState("Varying",States.Neutral, "Provoke", States.Emotions,  "Confuse",  
-                    States.Neutral, "Pathos",States.Neutral);
+                ChangeState(ARGUEVARIED,States.Neutral, PROVOKE, States.Emotions,  CONFUSE,  
+                    States.Neutral, PATHOS,States.Neutral);
                 SetButtonUnlock(choice4Button, false);
 
                 break;
@@ -92,21 +105,20 @@ public class PlayerDebateActionsScript : MonoBehaviour
                     States.Sad, "Anxious",States.Anxious);
                 break;
             case States.Happy:
-                if(_isArguing)
+                if (!_clicked)
                 {
-                    ChangeTextChoices("Mock", "Tease", "Laugh", "");
+                    if (_isArguing)
+                    {
+                        ChangeTextChoices("Mock", "Tease", "Laugh", "");
+                    }
+                    else
+                    {
+                        ChangeTextChoices("Pet", "Dance", "Motivate", "");
+                        SetButtonOnClick(choice1Button, _persuade1Change);
+
+                    }
                 }
-                else
-                {
-                    _choice1Text.text = "Pet";
-                    //choice1Button.GetComponent<Button>().onClick.AddListener(OpponentUniqueArgue);
-                    _choice2Text.text = "Dance";
-                    //choice2Button.GetComponent<Button>().onClick.AddListener(Provoke);
-                    _choice3Text.text = "Motivate";
-                    //choice3Button.GetComponent<Button>().onClick.AddListener();
-                    choice4Button.SetActive(false);
-                    
-                }
+
                 break;
             case States.Angry:
                 if(_isArguing){
@@ -186,10 +198,9 @@ public class PlayerDebateActionsScript : MonoBehaviour
         
     }
 
-    UnityAction PanelButton(States changeState){
+    public void PanelButton(States changeState){
         choicePanel.SetActive(true);
         state = changeState;
-        return null;
     }
     
     public void ActButton(){
@@ -210,7 +221,9 @@ public class PlayerDebateActionsScript : MonoBehaviour
     
     void Change(){}
     void ChangeState(string text1, States state1, string text2, States state2,
-        string text3, States state3, string text4, States state4){
+        string text3, States state3, string text4, States state4)
+    {
+        _clicked = false;
         _choice1Text.text = text1;
         choice1Button.GetComponent<Button>().onClick.AddListener(()=>PanelButton(state1));
         _choice2Text.text = text2;

@@ -1,16 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ChangeOpponentES : MonoBehaviour
 {
-    [SerializeField] private GameObject opponent;
+    public static DebateHUDScript opponentHUD;
 
 
-    public static void ESDown(GameObject opponent, int damage){
+    // ReSharper disable Unity.PerformanceAnalysis
+    public static void OpponentESChange(GameObject opponent, int damage, Slider esMeter){
         if (opponent.GetComponent<DebateValuesScript>())
         {
-            opponent.GetComponent<DebateValuesScript>().currentES -= damage;
+            DebateValuesScript opponentValues = opponent.GetComponent<DebateValuesScript>();
+            opponentValues.currentES += damage;
+            if (opponentValues.currentES > opponentValues.maxES)
+            {
+                opponentValues.currentES = opponentValues.maxES;
+            }
+            else if (opponentValues.currentES < 0)
+            {
+                opponentValues.currentES = 0;
+            }
+
+            esMeter.value = opponentValues.currentES;
         }else{Debug.LogError("Supplied Game Objects is not an opponent");}
     }
 }

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class DebateHUDScript : MonoBehaviour
 {
-    [SerializeField] Text nameText;
-    [SerializeField] Text levelText;
-    [SerializeField] Slider esSlider;
+    public Text nameText;
+    public Text levelText;
+    public Slider esSlider;
     
     public void SetHUD(DebateValuesScript debater){
         nameText.text = debater.debaterName;
@@ -17,6 +17,6 @@ public class DebateHUDScript : MonoBehaviour
     }
     
     private void SetES(int es){
-        esSlider.value += es;
+        esSlider.value = es;
     }
 }
