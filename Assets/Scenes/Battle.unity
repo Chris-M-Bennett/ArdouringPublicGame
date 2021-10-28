@@ -3997,10 +3997,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   choicePanel: {fileID: 878411043}
-  choice1Button: {fileID: 2010589556}
-  choice2Button: {fileID: 1624917260}
-  choice3Button: {fileID: 1331104170}
-  choice4Button: {fileID: 786517140}
+  choice1: {fileID: 2010589556}
+  choice2: {fileID: 1624917260}
+  choice3: {fileID: 1331104170}
+  choice4: {fileID: 786517140}
   opponentESSlider: {fileID: 1326428985}
 --- !u!114 &1905485770
 MonoBehaviour:
